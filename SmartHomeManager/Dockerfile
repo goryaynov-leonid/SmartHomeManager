@@ -9,7 +9,7 @@ FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
 COPY ["SmartHomeManager.csproj", "SmartHomeManager/"]
 RUN dotnet restore "SmartHomeManager/SmartHomeManager.csproj"
-COPY . .
+COPY . ./SmartHomeManager/
 WORKDIR "/src/SmartHomeManager"
 RUN dotnet build "SmartHomeManager.csproj" -c Release -o /app/build
 
