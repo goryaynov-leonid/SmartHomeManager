@@ -1,0 +1,14 @@
+version: "3"
+services:
+    backend:
+        build: ./SmartHomeManager
+        ports:
+            - 80:80
+            - 443:443
+    mssql:
+        image: mcr.microsoft.com/mssql/server:2019-latest
+        environment:
+            - ACCEPT_EULA=Y
+            - SA_PASSWORD=12345678Aa
+        ports: 
+            - 5000:1433
