@@ -28,6 +28,10 @@ else
     app.UseHsts();
 }
 
+using var scope = app.Services.CreateScope();
+var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+context.Database.Migrate();
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
