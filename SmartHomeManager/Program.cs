@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SmartHomeManager.Data;
 
@@ -39,7 +40,13 @@ app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
-
+app.Map("/health", x =>
+{
+    x.Run(async context =>
+    {
+        context.Response.StatusCode = 200;
+    });
+});
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");

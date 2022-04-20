@@ -17,6 +17,8 @@ FROM build AS publish
 RUN dotnet publish "SmartHomeManager.csproj" -c Release -o /app/publish
 
 FROM base AS final
+ARG GIT_COMMIT=unspecified
+LABEL git_commit=$GIT_COMMIT
 WORKDIR /app
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "SmartHomeManager.dll"]

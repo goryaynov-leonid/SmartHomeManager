@@ -1,22 +1,24 @@
 version: "3"
 services:
     web:
-        build: ./SmartHomeManager
+        build: 
+            context: ./SmartHomeManager
+            args:
+                - GIT_COMMIT=123
         ports:
             - "8000:80"
         depends_on:
             - db
         volumes:
             - ./appsettings.prod.json:/app/appsettings.prod.json
-        environment:
-            ASPNETCORE_ENVIRONMENT: "prod"
+        env_file:
+            - app.env
     db:
         image: "mcr.microsoft.com/mssql/server"
         volumes:
            - backend_db:/var/opt/mssql
-        environment:
-            SA_PASSWORD: "Your_password123"
-            ACCEPT_EULA: "Y"
+        env_file:
+            - db.env
         ports:
             - "7000:1433"
 volumes:
