@@ -4,7 +4,8 @@ services:
         build: 
             context: ./SmartHomeManager
             args:
-                - GIT_COMMIT=123
+                - GIT_COMMIT=${GIT_COMMIT}
+                - CUR_DATE=${CUR_DATE}
         ports:
             - "8000:80"
         depends_on:
