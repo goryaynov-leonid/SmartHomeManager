@@ -16,7 +16,7 @@ code_quality:
 test-job: 
   stage: test
   script:
-    - dotnet test SmartHomeManager/Tests.csproj
+    - dotnet test Tests/Tests.csproj
 
 build-job:
   stage: build
