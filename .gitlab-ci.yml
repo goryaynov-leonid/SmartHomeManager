@@ -1,0 +1,10 @@
+stages:
+  - code style check
+  - test
+  - build
+  - push
+
+style-job:
+  stage: code style check
+  script:
+    - echo "Your code is beautiuful"
