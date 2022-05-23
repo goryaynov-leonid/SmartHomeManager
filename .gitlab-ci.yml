@@ -4,7 +4,21 @@ stages:
   - build
   - push
 
-style-job:
+include:
+  - template: Code-Quality.gitlab-ci.yml
+
+
+code-quality:
   stage: code style check
+  artifacts:
+    paths: [gl-code-quality-report.json]
+
+test-job: 
+  stage: test
   script:
-    - echo "Your code is beautiuful"
+    - dotnet test SmartHomeManager/Tests.csproj
+
+build-job:
+  stage: build
+  script: 
+    - /bin/bash ./build.sh
