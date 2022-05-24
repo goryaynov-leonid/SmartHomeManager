@@ -6,6 +6,7 @@ services:
             args:
                 - GIT_COMMIT=${GIT_COMMIT}
                 - CUR_DATE=${CUR_DATE}
+        image: cr.yandex/${CR_ID}/web
         ports:
             - "8000:80"
         depends_on:
