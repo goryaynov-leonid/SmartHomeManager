@@ -30,4 +30,4 @@ push-job:
   variables:
    CR_ID: crp1ihdipp8l3cf2k9c0
   script: 
-    - docker push cr.yandex/$CR_ID/web
+    - sudo docker push cr.yandex/$CR_ID/web
