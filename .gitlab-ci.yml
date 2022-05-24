@@ -20,6 +20,8 @@ test-job:
 
 build-job:
   stage: build
+  variables:
+   CR_ID: crp1ihdipp8l3cf2k9c0
   script: 
     - /bin/bash ./build.sh
 
