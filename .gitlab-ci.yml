@@ -29,10 +29,5 @@ push-job:
   stage: push
   variables:
    CR_ID: crp1ihdipp8l3cf2k9c0
-  before_script:
-    - docker login \
-         --username oauth \
-         --password $OAUTH_YANDEX \
-         cr.yandex
   script: 
     - docker push cr.yandex/$CR_ID/web
