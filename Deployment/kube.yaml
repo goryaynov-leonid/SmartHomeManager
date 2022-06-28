@@ -41,7 +41,7 @@ metadata:
   namespace: manager
 spec:
   ports:
-    - port: 8080
+    - port: 80
       protocol: TCP
       targetPort: 80
   selector:
@@ -56,11 +56,11 @@ metadata:
   namespace: manager
 spec:
   rules:
-    - host: testo.stage.code.hits.university
+    - host: app.localdev.me
       http:
         paths:
           - backend:
               serviceName: manager
-              servicePort: 8080
+              servicePort: 80
             path: /
             pathType: Prefix
