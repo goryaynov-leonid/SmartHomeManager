@@ -31,7 +31,11 @@ else
 
 using var scope = app.Services.CreateScope();
 var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-context.Database.Migrate();
+try
+{
+    context.Database.Migrate();
+}
+catch { }
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
